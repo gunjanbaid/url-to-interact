@@ -35,9 +35,10 @@ def url_to_interact(url, url_type="datahub", https=False):
 	path_parts = url_parts[5:]
 	path = ""
 	for path_part in path_parts:
-		path += path_part
-		if ".ipynb" not in path_part:
-			path += "/"
+		path += path_part + "/"
+	# removing final slash for file
+	# and directory compatibility
+	path = path[:len(path)-1]
 
 	pre = "https" if https is True else "http"
 	url_int = "{pre}://{url_type}.berkeley.edu/user-redirect/interact?repo={repo}&branch={branch}&path={path}"\
