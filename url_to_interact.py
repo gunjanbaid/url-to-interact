@@ -48,8 +48,8 @@ def url_to_interact(url, url_type='datahub', https=False):
 @view('form_template')
 def index():
 	interact = url_to_interact(request.forms.url)
-	show_url = "Error! " in interact
-	error = request.method == "POST"
+	show_url = request.method == "POST"
+	error = "Error! " in interact
 	return dict(url=interact, show_url=show_url, error=error)
 	
 run(server="gevent", host="0.0.0.0", port=os.environ.get("PORT", 5000), debug=True)
