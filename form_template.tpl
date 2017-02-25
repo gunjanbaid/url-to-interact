@@ -23,7 +23,6 @@
     background: #FAFAFA;
     padding: 30px;
     margin: 50px auto;
-    border-radius: 10px;
     border: 6px solid #276f91;
 }
 .form-style-9 ul{
@@ -71,7 +70,6 @@
 .form-style-9 ul li input[type="button"], 
 .form-style-9 ul li input[type="submit"] {
     background-color: #276f91;
-    border-radius: 5px;
     border: 1px solid #276f91;
     display: inline-block;
     cursor: pointer;
