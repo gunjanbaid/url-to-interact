@@ -2,7 +2,9 @@
 from bottle import request, route, run, view
 
 
-# Source: https://github.com/data-8/connector-instructors/blob/gh-pages/connectortools/utils.py
+# Original author
+# https://github.com/data-8/connector-instructors/blob/gh-pages/connectortools/utils.py
+
 def url_to_interact(url, url_type='datahub', https=False):
     """Create an interact link from a URL in github or data-8.org.
 
@@ -49,4 +51,4 @@ def index():
 	interact = url_to_interact(request.forms.url)
 	return dict(url=interact, show_url=request.method=='POST') 
 
-run(host='localhost', port=8080, reloader=True)
+run(server='gevent', host='0.0.0.0', port=os.environ.get('PORT', 5000), debug=True)
