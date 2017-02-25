@@ -1,1 +1,1 @@
-web: ./url_to_interact.py
+web: python url_to_interact.py
