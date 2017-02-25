@@ -8,7 +8,10 @@ gevent.monkey.patch_all()
 # Original author
 # https://github.com/data-8/connector-instructors/blob/gh-pages/connectortools/utils.py
 
-def url_to_interact(url, url_type='datahub', https=False):
+
+# https://github.com/data-8/cogneuro-connector/blob/fall_2016/utils/create_interact_link.ipynb
+
+def url_to_interact(url, url_type="datahub", https=False):
 	"""Create an interact link from a URL in github or data-8.org.
 
 	Parameters
@@ -20,25 +23,25 @@ def url_to_interact(url, url_type='datahub', https=False):
 	"""
 	if url == "":
 		return ""
-	url = url.rstrip('//')
-	if not any([i in url for i in ['data-8', 'data8.org']]):
+	url = url.replace("https://", "")
+	url_parts = url.split("/")
+	if "data-8" not in url_parts:
 		return "Error! Please provide a URL for a repo in the data-8 organization."
-	if 'github.com' in url:
-		repo_split = 'data-8/'
-	elif 'data8.org' in url:
-		repo_split = 'data8.org/'
-	else:
-		print("IHGSIRHGIOH")
-		return "Error! Please provide a valid URL."
-	repo_parts = url.split(repo_split)[-1].split('/')
-	repo = repo_parts[0]
-	if len(repo_parts) == 1:
-		name = '*'
-	else:
-		name_split = repo + '/'
-		name = url.split(name_split)[-1]
+
+	org = url_parts[1]
+	repo = url_parts[2]
+	branch = url_parts[4]
+
+	path_parts = url_parts[5:]
+	path = ""
+	for path_part in path_parts:
+		path += path_part
+		if ".ipynb" not in path_part:
+			path += "/"
+
 	pre = "https" if https is True else "http"
-	url_int = "{0}://{1}.berkeley.edu/user-redirect/interact?repo={2}&path={3}".format(pre, url_type, repo, name)
+	url_int = "{pre}://{url_type}.berkeley.edu/user-redirect/interact?repo={repo}&branch={branch}&path={path}"\
+			  .format(pre=pre, url_type=url_type, repo=repo, branch=branch, path=path)
 	return url_int
 	
 @route('/', method=['GET', 'POST'])
