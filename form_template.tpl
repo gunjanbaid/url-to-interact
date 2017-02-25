@@ -14,7 +14,7 @@
 	<p>Your interact URL is: </p>
 	{{url}}
 	<textarea rows="2" cols="100">{{url}}</textarea>
-	%if not show_url and error and not blank:
+	%if show_url and error and not blank:
 	<p>{{error}}</p>
 	</center>
 </body>
