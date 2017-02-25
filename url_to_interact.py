@@ -20,7 +20,7 @@ def url_to_interact(url, url_type='datahub', https=False):
 	"""
 	try:
 		if url == "":
-			return 
+			return ""
 		url = url.rstrip('//')
 		if not any([i in url for i in ['data-8', 'data8.org']]):
 			return "Error! Please provide a URL for a repo in the data-8 organization."
