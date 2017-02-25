@@ -10,12 +10,11 @@
 		<p><textarea rows="2" cols="100" name="url"></textarea></p>
 		<p><input value="Convert to interact link!" type="submit"/></p>
 	</form>
-	%if show_url and not error:
+	%if show_url and not error and not blank:
 	<p>Your interact URL is: </p>
 	{{url}}
 	<textarea rows="2" cols="100">{{url}}</textarea>
-	%end
-	%if not show_url and error:
+	%if not show_url and error and not blank:
 	<p>{{error}}</p>
 	</center>
 </body>

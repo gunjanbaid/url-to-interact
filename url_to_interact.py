@@ -50,6 +50,7 @@ def index():
 	interact = url_to_interact(request.forms.url)
 	show_url = request.method == "POST"
 	error = "Error! " in interact
-	return dict(url=interact, show_url=show_url, error=error)
+	blank = interact == ""
+	return dict(url=interact, show_url=show_url, error=error, blank=blank)
 	
 run(server="gevent", host="0.0.0.0", port=os.environ.get("PORT", 5000), debug=True)
