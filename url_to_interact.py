@@ -3,6 +3,7 @@ import os
 import gevent.monkey
 from bottle import request, route, run, view
 
+gevent.monkey.patch_all()
 
 # Original author
 # https://github.com/data-8/connector-instructors/blob/gh-pages/connectortools/utils.py
@@ -51,6 +52,6 @@ def url_to_interact(url, url_type='datahub', https=False):
 def index():
 	print(request.forms.url)
 	interact = url_to_interact(request.forms.url)
-	return dict(url=interact, show_url=request.method=='POST') 
+	return dict(url=interact, show_url=request.method=="POST") 
 
-run(server='gevent', host='0.0.0.0', port=os.environ.get('PORT', 5000), debug=True)
+run(server="gevent", host="0.0.0.0", port=os.environ.get("PORT", 5000), debug=True)
