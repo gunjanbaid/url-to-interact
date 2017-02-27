@@ -49,5 +49,5 @@ def index():
 	show_url = interact != ""
 	return dict(interact=interact, show_url=show_url)
 	
-# run(server="gevent", host="0.0.0.0", port=os.environ.get("PORT", 5000), debug=True)
-run(host="localhost", port="8000")
+run(server="gevent", host="0.0.0.0", port=os.environ.get("PORT", 5000), debug=True)
+# run(host="localhost", port="8000")
