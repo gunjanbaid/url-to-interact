@@ -6,9 +6,16 @@
 <body>
 <form action="/" method="post" class="form-style-9">
 <ul>
-<li><textarea name="url" class="field-style" placeholder="URL"></textarea></li>
+<li><textarea name="url" class="field-style" placeholder="Paste the GitHub URL for your file or folder here. Make sure you're on the desired branch! 
+
+Example:
+https://github.com/data-8/connector-instructors/blob/gh-pages/examples/create_interact_link.ipynb"></textarea></li>
 <li><center><input type="submit" value="Convert to interact link!"/></center></li>
-<li><textarea class="field-style" placeholder="Your interact link URL will appear here.">
+<li><textarea class="field-style" placeholder="Your interact link URL will appear here.
+
+Example:
+http://datahub.berkeley.edu/user-redirect/interact?repo=connector-instructors&branch=gh-pages&path=examples/create_interact_link.ipynb
+">
 %if show_url:
 {{interact}}
 %end
@@ -19,7 +26,7 @@
 
 <style type="text/css">
 .form-style-9{
-    max-width: 450px;
+    max-width: 800px;
     background: #FAFAFA;
     padding: 30px;
     margin: 50px auto;

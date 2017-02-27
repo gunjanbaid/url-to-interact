@@ -5,12 +5,8 @@ from bottle import request, route, run, view
 
 gevent.monkey.patch_all()
 
-# Original author
+# Original source
 # https://github.com/data-8/connector-instructors/blob/gh-pages/connectortools/utils.py
-
-
-# https://github.com/data-8/cogneuro-connector/blob/fall_2016/utils/create_interact_link.ipynb
-
 def url_to_interact(url, url_type="datahub", https=False):
 	"""Create an interact link from a URL in github or data-8.org.
 
@@ -50,9 +46,8 @@ def url_to_interact(url, url_type="datahub", https=False):
 @view('form_template')
 def index():
 	interact = url_to_interact(request.forms.url)
-	error = "Error! " in interact or interact == ""
 	show_url = interact != ""
-	return dict(interact=interact, show_url=show_url, error=error)
+	return dict(interact=interact, show_url=show_url)
 	
-run(server="gevent", host="0.0.0.0", port=os.environ.get("PORT", 5000), debug=True)
-# run(host="localhost", port="8000")
+# run(server="gevent", host="0.0.0.0", port=os.environ.get("PORT", 5000), debug=True)
+run(host="localhost", port="8000")
