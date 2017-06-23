@@ -7,7 +7,7 @@ gevent.monkey.patch_all()
 
 # Original source
 # https://github.com/data-8/connector-instructors/blob/gh-pages/connectortools/utils.py
-def url_to_interact(url, url_type="datahub", https=False):
+def url_to_interact(url, url_type, https=False):
 	"""Create an interact link from a URL in github or data-8.org.
 
 	Parameters
@@ -45,9 +45,9 @@ def url_to_interact(url, url_type="datahub", https=False):
 @route('/interact', method=['GET', 'POST'])
 @view('form_template')
 def index():
-	interact = url_to_interact(request.forms.url)
+	interact = url_to_interact(request.forms.url, request.forms.urltype)
 	show_url = interact != ""
 	return dict(interact=interact, show_url=show_url)
 	
-run(server="gevent", host="0.0.0.0", port=os.environ.get("PORT", 5000), debug=True)
-# run(host="localhost", port="8000")
+# run(server="gevent", host="0.0.0.0", port=os.environ.get("PORT", 5000), debug=True)
+run(host="localhost", port="8000")

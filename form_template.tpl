@@ -6,11 +6,25 @@
 <body>
 <form action="/" method="post" class="form-style-9">
 <ul>
-<li><textarea name="url" class="field-style" placeholder="Paste the GitHub URL for your file or folder here. Make sure you're on the desired branch! 
 
-Example:
+<li>
+    1. Choose your desired hub:
+    <select name="urltype" value="Choose your desired hub!"> 
+        <option value="data8.haas">data8.haas.berkeley.edu</option>
+        <option value="datahub">datahub.berkeley.edu</option>
+        <option value="datahub-dev">datahub-dev.berkeley.edu</option>
+    </select>
+</li>
+2. Paste the GitHub URL for your file or folder here. Make sure you're on the desired branch!
+<br>
+<br>
+
+<li><textarea name="url" class="field-style" placeholder="Example:
 https://github.com/data-8/connector-instructors/blob/gh-pages/examples/create_interact_link.ipynb"></textarea></li>
-<li><center><input type="submit" value="Convert to interact link!"/></center></li>
+
+
+<li>3. <input type="submit" value="Convert to interact link!"/></li>
+
 <li><textarea class="field-style" placeholder="Your interact link URL will appear here.
 
 Example:
@@ -25,6 +39,11 @@ http://datahub.berkeley.edu/user-redirect/interact?repo=connector-instructors&br
 </body>
 
 <style type="text/css">
+
+body {
+    font: 12px Arial, Helvetica, sans-serif;
+}
+
 .form-style-9{
     max-width: 800px;
     background: #FAFAFA;
