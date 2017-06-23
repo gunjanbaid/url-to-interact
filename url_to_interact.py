@@ -7,7 +7,7 @@ gevent.monkey.patch_all()
 
 # Original source
 # https://github.com/data-8/connector-instructors/blob/gh-pages/connectortools/utils.py
-def url_to_interact(url, url_type, https=False):
+def url_to_interact(url, url_type, https=True):
 	"""Create an interact link from a URL in github or data-8.org.
 
 	Parameters
@@ -23,8 +23,6 @@ def url_to_interact(url, url_type, https=False):
 	url_parts = url.split("/")
 	if "data-8" not in url_parts:
 		return "Error! Please provide a URL for a repo in the data-8 organization."
-	if "blob" not in url_parts:
-		return "Error! You cannot pull in the whole repo. Please specify a file or folder."
 
 	org = url_parts[1]
 	repo = url_parts[2]
