@@ -23,6 +23,8 @@ def url_to_interact(url, url_type, https=False):
 	url_parts = url.split("/")
 	if "data-8" not in url_parts:
 		return "Error! Please provide a URL for a repo in the data-8 organization."
+	if "blob" not in url_parts:
+		return "Error! You cannot pull in the whole repo. Please specify a file or folder."
 
 	org = url_parts[1]
 	repo = url_parts[2]
