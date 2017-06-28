@@ -19,12 +19,18 @@ def url_to_interact(url, url_type, https=True):
 	"""
 	if url == "":
 		return ""
+
+	# Cannot clone the whole repo yet.
+	# Will add support for this later when nbpuller
+	# supports path=*.
+	if "tree" not in url nad "blob" not in url:
+		return "Error! Please choose a specific file or folder in the repo."
+
+	# Split the URL up by slashes.
 	url = url.replace("https://", "")
 	url_parts = url.split("/")
-	if "data-8" not in url_parts:
-		return "Error! Please provide a URL for a repo in the data-8 organization."
 
-	org = url_parts[1]
+	account = url_parts[1]
 	repo = url_parts[2]
 	branch = url_parts[4]
 
@@ -32,13 +38,13 @@ def url_to_interact(url, url_type, https=True):
 	path = ""
 	for path_part in path_parts:
 		path += path_part + "/"
-	# removing final slash for file
-	# and directory compatibility
+	# Removing final slash for file
+	# and directory compatibility.
 	path = path[:len(path)-1]
 
 	pre = "https" if https is True else "http"
-	url_int = "{pre}://{url_type}.berkeley.edu/user-redirect/interact?repo={repo}&branch={branch}&path={path}"\
-			  .format(pre=pre, url_type=url_type, repo=repo, branch=branch, path=path)
+	url_int = "{pre}://{url_type}.berkeley.edu/user-redirect/interact?account={account}&repo={repo}&branch={branch}&path={path}"\
+			  .format(pre=pre, url_type=url_type, account=account, repo=repo, branch=branch, path=path)
 	return url_int
 	
 @route('/', method=['GET', 'POST'])
