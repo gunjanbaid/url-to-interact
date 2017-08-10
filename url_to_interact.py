@@ -23,7 +23,7 @@ def url_to_interact(url, url_type, https=True):
 	# Cannot clone the whole repo yet.
 	# Will add support for this later when nbpuller
 	# supports path=*.
-	if "tree" not in url nad "blob" not in url:
+	if "tree" not in url and "blob" not in url:
 		return "Error! Please choose a specific file or folder in the repo."
 
 	# Split the URL up by slashes.
