@@ -8,28 +8,29 @@
 <ul>
 
 <li>
-    1. Choose your desired hub:
+    <b>1. Choose your desired hub:</b>
     <select name="urltype" value="Choose your desired hub!"> 
         <option value="data8.haas">data8.haas.berkeley.edu</option>
         <option value="datahub">datahub.berkeley.edu</option>
         <option value="datahub-dev">datahub-dev.berkeley.edu</option>
     </select>
 </li>
-2. Paste the GitHub URL for your file or folder here. Make sure you're on the desired branch!
+<b>2. Paste the GitHub URL for your file or folder in the box below. Make sure you're on the desired branch!</b>
 <br>
 <br>
+<li><textarea name="url" class="field-style" placeholder="Example: https://github.com/data-8/connector-instructors/blob/gh-pages/examples/create_interact_link.ipynb" onclick="this.placeholder=''" onblur="this.placeholder='Example: https://github.com/data-8/connector-instructors/blob/gh-pages/examples/create_interact_link.ipynb'">
+%if show_url:
+{{original}}
+%end	
+</textarea></li>
 
-<li><textarea name="url" class="field-style" placeholder="Example:
-https://github.com/data-8/connector-instructors/blob/gh-pages/examples/create_interact_link.ipynb"></textarea></li>
 
+<li><b>3. <input type="submit" value="Convert to interact link!"/></b></li>
 
-<li>3. <input type="submit" value="Convert to interact link!"/></li>
-
-<li><textarea class="field-style" placeholder="Your interact link URL will appear here.
-
-Example:
-http://datahub.berkeley.edu/user-redirect/interact?repo=connector-instructors&branch=gh-pages&path=examples/create_interact_link.ipynb
-">
+<b>4. Your interact link URL will appear in the box below.</b>
+<br>
+<br>
+<li><textarea class="field-style" placeholder="Example: http://datahub.berkeley.edu/user-redirect/interact?repo=connector-instructors&branch=gh-pages&path=examples/create_interact_link.ipynb " onclick="this.placeholder=''" onblur="this.placeholder='Example: http://datahub.berkeley.edu/user-redirect/interact?repo=connector-instructors&branch=gh-pages&path=examples/create_interact_link.ipynb '">
 %if show_url:
 {{interact}}
 %end
@@ -39,6 +40,11 @@ http://datahub.berkeley.edu/user-redirect/interact?repo=connector-instructors&br
 </body>
 
 <style type="text/css">
+
+::-webkit-input-placeholder { color: #b2b2b2; }
+::-moz-placeholder {color: #b2b2b2; }
+:-ms-input-placeholder { color: #b2b2b2; } 
+:-o-input-placeholder { color: #b2b2b2; } 
 
 body {
     font: 12px Arial, Helvetica, sans-serif;
@@ -103,6 +109,7 @@ body {
     padding: 8px 18px;
     text-decoration: none;
     font: 12px Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 .form-style-9 ul li input[type="button"]:hover, 
 .form-style-9 ul li input[type="submit"]:hover {

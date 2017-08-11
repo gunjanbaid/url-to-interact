@@ -51,9 +51,10 @@ def url_to_interact(url, url_type, https=True):
 @route('/interact', method=['GET', 'POST'])
 @view('form_template')
 def index():
+	original = request.forms.url
 	interact = url_to_interact(request.forms.url, request.forms.urltype)
 	show_url = interact != ""
-	return dict(interact=interact, show_url=show_url)
+	return dict(original=original, interact=interact, show_url=show_url)
 	
 run(server="gevent", host="0.0.0.0", port=os.environ.get("PORT", 5000), debug=True)
 # run(host="localhost", port="8000")
