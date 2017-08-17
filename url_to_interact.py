@@ -21,7 +21,7 @@ def url_to_interact(url, url_type, https=True):
 		return ""
 
 	# Split the URL up by slashes.
-	url = url.replace("https://", "")
+	url = url.replace("https://", "").strip()
 	url_parts = url.split("/")
 
 	account = url_parts[1]
