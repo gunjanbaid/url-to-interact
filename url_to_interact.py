@@ -26,7 +26,12 @@ def url_to_interact(url, url_type, https=True):
 
 	account = url_parts[1]
 	repo = url_parts[2]
-	branch = url_parts[4]
+
+	# this will allow path to be empty on master branch
+	if "tree" not in url_parts and "blob" not in url_parts:
+		branch = "master"
+	else:
+		branch = url_parts[4]
 
 	path_parts = url_parts[5:]
 	path = ""
