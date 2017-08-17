@@ -20,12 +20,6 @@ def url_to_interact(url, url_type, https=True):
 	if url == "":
 		return ""
 
-	# Cannot clone the whole repo yet.
-	# Will add support for this later when nbpuller
-	# supports path=*.
-	if "tree" not in url and "blob" not in url:
-		return "Error! Please choose a specific file or folder in the repo."
-
 	# Split the URL up by slashes.
 	url = url.replace("https://", "")
 	url_parts = url.split("/")
@@ -42,7 +36,7 @@ def url_to_interact(url, url_type, https=True):
 	# and directory compatibility.
 	path = path[:len(path)-1]
 
-	pre = "https" if https is True else "http"
+	pre = "http"
 	url_int = "{pre}://{url_type}.berkeley.edu/user-redirect/interact?account={account}&repo={repo}&branch={branch}&path={path}"\
 			  .format(pre=pre, url_type=url_type, account=account, repo=repo, branch=branch, path=path)
 	return url_int
