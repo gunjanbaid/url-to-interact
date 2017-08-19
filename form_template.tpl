@@ -10,9 +10,9 @@
 <li>
     <b>1. Choose your desired hub:</b>
     <select name="urltype" value="Choose your desired hub!"> 
-        <option value="data8.haas">data8.haas.berkeley.edu</option>
-        <option value="datahub">datahub.berkeley.edu</option>
-        <option value="datahub-dev">datahub-dev.berkeley.edu</option>
+        <option value="datahub">datahub.berkeley.edu (for classes)</option>
+        <option value="staging.datahub">staging.datahub.berkeley.edu (for testing)</option>
+        <option value="data8.haas">data8.haas.berkeley.edu (for summer, until August end)</option>
     </select>
 </li>
 <b>2. Paste the GitHub URL for your file or folder in the box below. Make sure you're on the desired branch!</b>
