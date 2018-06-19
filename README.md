@@ -9,5 +9,5 @@
 
 ## To make changes, edit the needed files, commit the changes, and then run BOTH:
 
-`git push origin master`
-`git push heroku master`
+* `git push origin master` 
+* `git push heroku master`  
